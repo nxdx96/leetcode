@@ -1,5 +1,11 @@
-class Solution:
-    def isAnagram(self, s: str, t: str) -> bool:
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+
         if len(s) != len(t):
             return False
 
@@ -10,3 +16,4 @@ class Solution:
             t_map[t[i]] = 1 + t_map.get(t[i], 0)
 
         return s_map == t_map
+        
