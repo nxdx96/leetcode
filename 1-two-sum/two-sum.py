@@ -6,9 +6,11 @@ class Solution(object):
         :rtype: List[int]
         """
 
-        for n in range(len(nums)):
-            diff = target - nums[n]
-            for m in range(1, len(nums)):
-                if diff == nums[m] and n != m:
-                    return [n,m]
+        diff_map = {}
+
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in diff_map:
+                return [diff_map[diff], i]
+            diff_map[n] = i
 
